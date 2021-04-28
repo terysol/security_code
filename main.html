@@ -1,6 +1,8 @@
 <!-- 
     1. input text 값에 값 적고 js에서 받아오기
     2. 테이블에 암호판 나오게 하기
+    3. 평문 두자리씩 자른 거 나오기하기
+    4. 대문자 있을 때 처리 하기
 -->
 
 <!DOCTYPE html>
@@ -16,50 +18,16 @@
         <div class="my-box">
             <h2>다중 문자 치환 암호화</h2>
             <span>가상키 : </span>
-            <input type="text" name="id">
+            <input type="text" id="key">
             <input type="button" name="encry" value="암호화" onclick="handleEncryption()">
             <br><br>
 
             <span>평문 : </span>
-            <input type="text" name="sentence">
+            <input type="text" id="sentence">
             <input type="button" name="decry" value="복호화" onclick="handleDecryption()">
            
-            <table>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
+            <table id="board">
+                
             </table>
             <div class="inner-box">
                 <span>암호화 : </span><input class="inputDesign" id ="encryp" type="text" value=" " readonly><br>

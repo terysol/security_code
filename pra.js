@@ -1,5 +1,6 @@
-let key='sleepy';
-let str='are you sleepy';
+// 선언
+let key="";
+let str="";
 let blankCheck="";
 let blankCheckCount=0;
 let zCheck=0;
@@ -8,17 +9,41 @@ let oddFlag = false;
 let encStr="";   // 암호화 된 문자열
 let desStr="";    // 복호화 된 문자열
 
+
+// 암호판 초기화
 let board = new Array(5);
 for (let i = 0; i < board.length; i++) {
     board[i] = new Array(5);
 }
-//let oddFlag=false;
 
 
 /*  암호화  */
 // value 값에 입력
 function handleEncryption(){
+    key=document.getElementById("key").value;
+    str=document.getElementById("sentence").value;
     document.getElementById('encryp').value=strEncryption(key,str);
+    createTable(board);
+}
+
+function createTable(data){
+    let table=document.getElementById("board");
+
+    for(let i=0;i<data.length;i++){
+        for(let j=0;j<data[i].length;j++){
+            var row=`<tr>
+                <td>${data[i][j]}</td>
+                <td>${data[i][j]}</td>
+                <td>${data[i][j]}</td>
+                <td>${data[i][j]}</td>
+                <td>${data[i][j]}</td>
+            </tr>
+            `
+           
+        }
+        table.innerHTML+=row;
+    }
+    
 }
 
 // 5x5 암호판 만들기
@@ -43,6 +68,7 @@ function setBoard(key){
 
 // 공백 제거
 function deleteblank(str){
+    str=str.toLowerCase();
     for(let i=0;i<str.length;i++) {
         if (str.charAt(i) === ' ') {
             str = str.substring(0, i) + str.substring(i + 1, str.length)
