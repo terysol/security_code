@@ -9,7 +9,6 @@ let oddFlag = false;
 let encStr="";   // 암호화 된 문자열
 let desStr="";    // 복호화 된 문자열
 
-
 // 암호판 초기화
 let board = new Array(5);
 for (let i = 0; i < board.length; i++) {
@@ -113,6 +112,7 @@ function strEncryption(key,str){
         playFair.push(tmpArr);
         
     }
+    document.getElementById("mapping").value=playFair.join(' ');
 
     for(let i=0;i<playFair.length;i++){
         let tmpArr='';
