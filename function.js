@@ -26,24 +26,23 @@ function handleEncryption(){
     createTable(board);
 }
 
+let insert="";
 function createTable(data){
     let table=document.getElementById("board");
+    let row=``;
 
-    for(let i=0;i<data.length;i++){
-        for(let j=0;j<data[i].length;j++){
-            var row=`<tr>
-                <td>${data[i][j]}</td>
-                <td>${data[i][j]}</td>
-                <td>${data[i][j]}</td>
-                <td>${data[i][j]}</td>
-                <td>${data[i][j]}</td>
-            </tr>
-            `
-           
+    for(let i=0;i<5;i++){
+        row=`<tr>`;
+        for(let j=0;j<5;j++){
+            row+=`
+            <td>${data[i][j]}</td>
+        `
         }
-        table.innerHTML+=row;
+        row+=`</tr>`
+        insert+=row;
+        row=``;
     }
-    
+    table.innerHTML+=insert;
 }
 
 // 5x5 암호판 만들기
@@ -96,23 +95,23 @@ function strEncryption(key,str){
     let x1=0, y1=0, x2=0, y2=0;
 
     for(let i=0;i<str.length;i+=2){
-        let tmpArr=[];
-        tmpArr[0]= str.charAt(i);
+        let tmpArr="";
+        tmpArr+= str.charAt(i);
         try{
             if(str.charAt(i) === str.charAt(i+1)){
-                tmpArr[1]='x';
+                tmpArr+='x';
                 i--;
             }else if(i === str.length-1){
-                tmpArr[1]='x';
+                tmpArr+='x';
             }else{
-                tmpArr[1]=str.charAt(i+1);
+                tmpArr+=str.charAt(i+1);
             }
         }catch(err){
-            tmpArr[1]='x';
+            tmpArr+='x';
             oddFlag=true;
         }
-        console.log('tmpArr ' ,tmpArr);
         playFair.push(tmpArr);
+        
     }
 
     for(let i=0;i<playFair.length;i++){
@@ -146,7 +145,6 @@ function strEncryption(key,str){
     for(let i=0;i<encPlayFair.length;i++){
         encStr+=encPlayFair[i][0] + "" + encPlayFair[i][1] + " ";
     }
-    console.log(encStr);
     return encStr;
 }
 
@@ -217,7 +215,7 @@ function Decryption(key,str, zCheck){
        }
 
        decPlayFair.push(tmpArr);
-       //console.log(decPlayFair);
+       
     }
 
     for(let i=0;i<decPlayFair.length;i++){

@@ -3,6 +3,10 @@
     2. 테이블에 암호판 나오게 하기
     3. 평문 두자리씩 자른 거 나오기하기
     4. 대문자 있을 때 처리 하기
+
+    ----
+    1. 암호화, 복호화 버튼 누르고 나면 못 누르게 하기
+    2. 디자인
 -->
 
 <!DOCTYPE html>
@@ -10,7 +14,7 @@
     <meta charset="utf-8">
     <head>
         <title>쌍자치환 암호화</title>
-        <script src="pra.js"></script>
+        <script src="function.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
     
@@ -27,9 +31,10 @@
             <input type="button" name="decry" value="복호화" onclick="handleDecryption()">
            
             <table id="board">
-                
+               
             </table>
             <div class="inner-box">
+                <span>맵핑 문장 : </span><input class="inputDesign" id ="mapping" type="text" value=" " readonly><br>
                 <span>암호화 : </span><input class="inputDesign" id ="encryp" type="text" value=" " readonly><br>
                 <span>복호화 : </span><input class="inputDesign" id ="decryp" type="text" value=" " readonly>
             </div>
