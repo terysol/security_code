@@ -21,8 +21,17 @@ for (let i = 0; i < board.length; i++) {
 function handleEncryption(){
     key=document.getElementById("key").value;
     str=document.getElementById("sentence").value;
+    if(key === ""){
+        alert("가상키를 입력해주세요.");
+        return false;
+    }else if(str === ""){
+        alert("평문을 입력해주세요.");
+        return false;
+    }
     document.getElementById('encryp').value=strEncryption(key,str);
     createTable(board);
+
+    document.getElementsByName("encry")[0].disabled =true;
 }
 
 let insert="";
@@ -153,6 +162,11 @@ function strEncryption(key,str){
 // 복호화
 // value 값에 입력
 function handleDecryption(){
+    if(document.getElementById("key").value == ""){
+        alert("가상키를 입력해주세요.");
+    }else if(document.getElementById("sentence").value === ""){
+        alert("평문을 입력해주세요.");
+    }
     document.getElementById('decryp').value = strDecryption(key);
 }
 
